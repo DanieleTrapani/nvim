@@ -21,8 +21,8 @@ return {
     ft('lua'):fmt 'stylua'
     ft('typescript,javascript,typescriptreact,html,css'):fmt 'prettier'
     ft('php'):fmt {
-      cmd = 'php-cs-fixer fix .',
-      stdin = false,
+      cmd = 'pretty-php',
+      stdin = true,
     }
 
     -- Call setup() LAST!
