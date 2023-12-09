@@ -20,6 +20,10 @@ return {
     ft('ruby'):fmt 'rubocop'
     ft('lua'):fmt 'stylua'
     ft('typescript,javascript,typescriptreact,html,css'):fmt 'prettier'
+    ft('php'):fmt {
+      cmd = 'php-cs-fixer fix .',
+      stdin = false,
+    }
 
     -- Call setup() LAST!
     require('guard').setup {
