@@ -19,7 +19,7 @@ return {
     ft('rust'):fmt 'rustfmt'
     ft('ruby'):fmt 'rubocop'
     ft('lua'):fmt 'stylua'
-    ft('typescript,javascript,typescriptreact,html,css'):fmt 'prettier'
+    ft('typescript,javascript,javascriptreact,typescriptreact,html,css'):fmt 'prettier'
     ft('php'):fmt {
       cmd = 'pretty-php',
       stdin = true,
