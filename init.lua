@@ -20,6 +20,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.api.nvim_set_hl(0, 'RainbowRed', { fg = '#E06C75' })
+vim.api.nvim_set_hl(0, 'RainbowYellow', { fg = '#E5C07B' })
+vim.api.nvim_set_hl(0, 'RainbowBlue', { fg = '#61AFEF' })
+vim.api.nvim_set_hl(0, 'RainbowOrange', { fg = '#D19A66' })
+vim.api.nvim_set_hl(0, 'RainbowGreen', { fg = '#98C379' })
+vim.api.nvim_set_hl(0, 'RainbowViolet', { fg = '#C678DD' })
+vim.api.nvim_set_hl(0, 'RainbowCyan', { fg = '#56B6C2' })
+
 -- [[ Configure plugins ]]
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
@@ -148,6 +156,21 @@ require('lazy').setup({
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     opts = {},
+    event = 'VeryLazy',
+    config = function()
+      local highlight = {
+        'RainbowRed',
+        'RainbowYellow',
+        'RainbowBlue',
+        'RainbowOrange',
+        'RainbowGreen',
+        'RainbowViolet',
+        'RainbowCyan',
+      }
+      require('ibl').setup {
+        scope = { enabled = true, highlight = highlight },
+      }
+    end,
   },
 
   -- "gc" to comment visual regions/lines
@@ -240,6 +263,10 @@ vim.o.termguicolors = true
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- move line up and down
+vim.keymap.set('n', '<M-Up>', 'ddkP')
+vim.keymap.set('n', '<M-Down>', 'ddp')
 
 vim.keymap.set('n', '<leader>e', vim.cmd.Explore, { desc = 'Open Explore Mode' })
 
