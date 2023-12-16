@@ -268,7 +268,7 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', '<M-Up>', 'ddkP')
 vim.keymap.set('n', '<M-Down>', 'ddp')
 
-vim.keymap.set('n', '<leader>e', vim.cmd.Explore, { desc = 'Open Explore Mode' })
+-- vim.keymap.set('n', '<leader>e', vim.cmd.Explore, { desc = 'Open Explore Mode' })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
