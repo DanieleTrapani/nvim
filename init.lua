@@ -30,14 +30,11 @@ vim.api.nvim_set_hl(0, 'RainbowCyan', { fg = '#56B6C2' })
 
 -- [[ Configure plugins ]]
 require('lazy').setup({
-  -- NOTE: First, some plugins that don't require any configuration
-
-  -- Git related plugins
-  -- 'tpope/vim-fugitive',
-  -- 'tpope/vim-rhubarb',
-  --
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+
+  --GIT
+  'tpope/vim-fugitive',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -551,6 +548,8 @@ require('lspconfig').phpactor.setup {
     ['language_server_psalm.enabled'] = false,
   },
 }
+
+require('lspconfig').svelte.setup {}
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
