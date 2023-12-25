@@ -344,7 +344,7 @@ vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc =
 -- [";"] = { ":", "enter command mode", opts = { nowait = true } },
 vim.keymap.set('n', ';', ':', { desc = 'enter command mode' })
 vim.keymap.set('n', '-', vim.cmd.Oil, { desc = 'Open parent directory' })
-vim.keymap.set('n', '<leader>x', vim.cmd.BufferClose, { desc = '[X] Close Buffer' })
+vim.keymap.set('n', '<leader>x', vim.cmd.bd, { desc = '[X] Close Buffer' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 -- vim.keymap.set('n', '<leader>/', function()
 --     -- You can pass additional configuration to telescope to change theme, layout, etc.
