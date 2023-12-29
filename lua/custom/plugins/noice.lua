@@ -31,6 +31,8 @@ return {
         inc_rename = false,           -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false,       -- add a border to hover docs and signature help
       },
+      -- Dismiss Noice Messages
+      vim.keymap.set('n', '<leader>m', vim.cmd.NoiceDismiss, { desc = 'Dismiss messages' }),
     }
   end,
 }
