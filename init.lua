@@ -18,6 +18,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   }
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 vim.api.nvim_set_hl(0, 'RainbowRed', { fg = '#E06C75' })
@@ -73,6 +74,7 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',   opts = {} },
+
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -113,7 +115,7 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
+    -- Color theme
     'rose-pine/neovim',
     priority = 1000,
     config = function()
@@ -341,18 +343,17 @@ vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
--- [";"] = { ":", "enter command mode", opts = { nowait = true } },
 vim.keymap.set('n', ';', ':', { desc = 'enter command mode' })
 vim.keymap.set('n', '-', vim.cmd.Oil, { desc = 'Open parent directory' })
 vim.keymap.set('n', '<leader>x', vim.cmd.bd, { desc = '[X] Close Buffer' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
--- vim.keymap.set('n', '<leader>/', function()
---     -- You can pass additional configuration to telescope to change theme, layout, etc.
---     require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
---         winblend = 10,
---         previewer = false,
---     })
--- end, { desc = '[/] Fuzzily search in current buffer' })
+vim.keymap.set('n', '<leader>/', function()
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
