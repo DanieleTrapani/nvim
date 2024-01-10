@@ -3,7 +3,7 @@ My Neovim configuration, using [kickstart.nvim](https://github.com/nvim-lua/kick
 Plugin list includes:
 
 * [Barbar](https://github.com/romgrk/barbar.nvim) as the tabline
-* [Guard](https://github.com/nvimdev/guard.nvim) for LSP configuration, following Null-ls being archived
+* [Conform](https://github.com/stevearc/conform.nvim) for LSP formatter configuration, following Null-ls being archived
 * [Mason](https://github.com/williamboman/mason.nvim) for LSP installing and management
 * [Netrw](https://github.com/prichrd/netrw.nvim) but better
 * [Whichkey](https://github.com/folke/which-key.nvim) for keybindings
