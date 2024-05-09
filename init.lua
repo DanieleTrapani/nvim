@@ -494,11 +494,17 @@ require('mason-lspconfig').setup()
 -- TODO: add servers to be installed by default
 local servers = {
   -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  gopls = {},
+  goimports = {},
+  pyright = {},
+  rust_analyzer = {},
+  tsserver = {},
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
+  prettier = {},
+  prettierd = {},
+  emmet_language_server = {},
+  gofumpt = {},
+  tailwindcss = {},
 
   lua_ls = {
     Lua = {
@@ -575,6 +581,7 @@ cmp.setup {
     },
   },
   sources = {
+    { name = 'codeium' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },

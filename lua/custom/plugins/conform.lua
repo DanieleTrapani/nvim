@@ -14,6 +14,7 @@ return {
         javascriptreact = { { 'prettierd', 'prettier' } },
         typescriptreact = { { 'prettierd', 'prettier' } },
         php = { 'pretty-php' },
+        python = { 'autopep8' },
       },
 
       format_on_save = {
