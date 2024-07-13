@@ -16,6 +16,14 @@ return {
     'folke/trouble.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {},
+    cmd = 'Trouble',
+    keys = {
+      {
+        '<leader>q',
+        '<cmd>Trouble diagnostics toggle<cr>',
+        desc = 'Diagnostics (Trouble)',
+      },
+    },
   },
 
   {
@@ -27,5 +35,4 @@ return {
   },
 
   'tpope/vim-surround',
-  -- "tpope/vim-unimpaired",
 }
