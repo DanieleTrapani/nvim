@@ -581,9 +581,9 @@ cmp.setup {
     },
   },
   sources = {
-    { name = 'codeium' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'codeium' },
   },
 }
 
