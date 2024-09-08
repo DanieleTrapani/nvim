@@ -270,7 +270,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 
-vim.keymap.set('n', '<leader>rc', vim.cmd.RorCommands, { desc = 'List ROR commands', silent = true }
+vim.keymap.set('n', '<leader>rc', vim.cmd.RorCommands, { desc = 'List ROR commands', silent = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
