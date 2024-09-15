@@ -503,7 +503,7 @@ local servers = {
   gopls = {},
   pyright = {},
   rust_analyzer = {},
-  tsserver = {},
+  ts_ls = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
   emmet_language_server = {},
   tailwindcss = {},
