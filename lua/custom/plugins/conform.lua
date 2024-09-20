@@ -16,6 +16,7 @@ return {
         php = { 'pretty-php' },
         python = { 'autopep8' },
         eruby = { 'htmlbeautifier' },
+        cpp = { 'clang-format' },
       },
 
       format_on_save = {
