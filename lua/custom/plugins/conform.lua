@@ -7,7 +7,7 @@ return {
       formatters_by_ft = {
         go = { 'gofmt' },
         lua = { 'stylua' },
-        ruby = { 'rubyfmt' },
+        ruby = { 'rubocop' },
         rust = { 'rustfmt' },
         javascript = { { 'prettierd', 'prettier' } },
         typescript = { { 'prettierd', 'prettier' } },
