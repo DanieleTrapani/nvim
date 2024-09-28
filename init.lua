@@ -113,12 +113,22 @@ require('lazy').setup({
     },
   },
 
+  -- {
+  --   -- Color theme
+  --   'rose-pine/neovim',
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'rose-pine-moon'
+  --   end,
+  -- },
+
   {
-    -- Color theme
-    'rose-pine/neovim',
+    'folke/tokyonight.nvim',
+    lazy = false,
     priority = 1000,
+    opts = {},
     config = function()
-      vim.cmd.colorscheme 'rose-pine-moon'
+      vim.cmd.colorscheme 'tokyonight-moon'
     end,
   },
 
@@ -586,7 +596,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'codeium' },
+    -- { name = 'codeium' },
   },
 }
 
