@@ -268,6 +268,9 @@ vim.o.termguicolors = true
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- Better saving
+vim.keymap.set('n', '<leader><space>', ':w<cr>', { desc = 'Save File' })
+
 -- move line up and down
 vim.keymap.set('n', '<M-Up>', 'ddkP')
 vim.keymap.set('n', '<M-Down>', 'ddp')
@@ -350,7 +353,7 @@ vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc =
 vim.keymap.set('n', ';', ':', { desc = 'enter command mode' })
 vim.keymap.set('n', '-', vim.cmd.Oil, { desc = 'Open parent directory' })
 vim.keymap.set('n', '<leader>x', vim.cmd.bd, { desc = '[X] Close Buffer' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -366,6 +369,8 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+
+vim.keymap.set('t', 'jk', [[<C-\><C-n>]]) -- no need to escape the '\'
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`

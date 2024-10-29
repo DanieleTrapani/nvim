@@ -20,7 +20,7 @@ return {
     keys = {
       {
         '<leader>q',
-        '<cmd>Trouble diagnostics toggle<cr>',
+        '<cmd>Trouble diagnostics toggle focus=true<cr>',
         desc = 'Diagnostics (Trouble)',
       },
     },
