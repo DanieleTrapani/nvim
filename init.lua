@@ -159,6 +159,12 @@ require('lazy').setup({
     },
   },
 
+  -- lazy spec
+  {
+    "slim-template/vim-slim", -- Syntax highlighting for VIM
+    ft = "slim",
+  },
+
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
@@ -271,6 +277,10 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Better saving
 vim.keymap.set('n', '<leader><space>', ':w<cr>', { desc = 'Save File' })
 
+-- Better indenting
+vim.keymap.set("n", "<S-Right>", ">>")
+vim.keymap.set("n", "<S-Left>", "<<")
+
 -- move line up and down
 vim.keymap.set('n', '<M-Up>', 'ddkP')
 vim.keymap.set('n', '<M-Down>', 'ddp')
@@ -353,7 +363,7 @@ vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc =
 vim.keymap.set('n', ';', ':', { desc = 'enter command mode' })
 vim.keymap.set('n', '-', vim.cmd.Oil, { desc = 'Open parent directory' })
 vim.keymap.set('n', '<leader>x', vim.cmd.bd, { desc = '[X] Close Buffer' })
-vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>,', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -371,6 +381,15 @@ vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by 
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 vim.keymap.set('t', 'jk', [[<C-\><C-n>]]) -- no need to escape the '\'
+
+
+-- set file type on buffer creation and reading
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = { "*.slim" },
+  command = "set ft=slim",
+})
+
+
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
