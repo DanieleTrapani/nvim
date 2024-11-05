@@ -5,7 +5,7 @@ return {
   config = function()
     require('conform').setup {
       formatters_by_ft = {
-        go = { 'gofmt' },
+        go = { 'goimports' },
         lua = { 'stylua' },
         ruby = { 'rubocop' },
         rust = { 'rustfmt' },
