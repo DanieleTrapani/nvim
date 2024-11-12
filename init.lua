@@ -21,6 +21,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+
 vim.api.nvim_set_hl(0, 'RainbowRed', { fg = '#E06C75' })
 vim.api.nvim_set_hl(0, 'RainbowYellow', { fg = '#E5C07B' })
 vim.api.nvim_set_hl(0, 'RainbowBlue', { fg = '#61AFEF' })
@@ -626,3 +627,20 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+-- Folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+vim.opt.foldcolumn = "0"
+
+vim.opt.foldtext = ""
+
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 3
+
+vim.opt.foldnestmax = 3
+
+vim.keymap.set('n', 'ft', 'za', { desc = 'Toggle fold' })
+vim.keymap.set('n', 'fo', 'zR', { desc = 'Open all folds' })
+vim.keymap.set('n', 'fc', 'zM', { desc = 'Close all folds' })
