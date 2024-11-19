@@ -21,7 +21,6 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-
 vim.api.nvim_set_hl(0, 'RainbowRed', { fg = '#E06C75' })
 vim.api.nvim_set_hl(0, 'RainbowYellow', { fg = '#E5C07B' })
 vim.api.nvim_set_hl(0, 'RainbowBlue', { fg = '#61AFEF' })
@@ -66,6 +65,9 @@ require('lazy').setup({
 
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
+
+      -- Path completion
+      'hrsh7th/cmp-path',
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
@@ -162,8 +164,8 @@ require('lazy').setup({
 
   -- lazy spec
   {
-    "slim-template/vim-slim", -- Syntax highlighting for VIM
-    ft = "slim",
+    'slim-template/vim-slim', -- Syntax highlighting for VIM
+    ft = 'slim',
   },
 
   {
@@ -279,8 +281,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', '<leader><space>', ':w<cr>', { desc = 'Save File' })
 
 -- Better indenting
-vim.keymap.set("n", "<S-Right>", ">>")
-vim.keymap.set("n", "<S-Left>", "<<")
+vim.keymap.set('n', '<S-Right>', '>>')
+vim.keymap.set('n', '<S-Left>', '<<')
 
 -- move line up and down
 vim.keymap.set('n', '<M-Up>', 'ddkP')
@@ -315,6 +317,17 @@ require('telescope').setup {
       i = {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
+      },
+    },
+  },
+  pickers = {
+    buffers = {
+      show_all_buffers = true,
+      sort_mru = true,
+      mappings = {
+        i = {
+          ["<c-d>"] = "delete_buffer",
+        },
       },
     },
   },
@@ -365,7 +378,9 @@ vim.keymap.set('n', ';', ':', { desc = 'enter command mode' })
 vim.keymap.set('n', '-', vim.cmd.Oil, { desc = 'Open parent directory' })
 vim.keymap.set('n', '<leader>x', vim.cmd.bd, { desc = '[X] Close Buffer' })
 vim.keymap.set('n', '<leader>,', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>bm', require('buffer_manager.ui').toggle_quick_menu, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<BS>', '<C-^>')
+vim.keymap.set('n', '<Tab>', vim.cmd.bn)
+vim.keymap.set('n', '<S-Tab>', vim.cmd.bp)
 
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -385,14 +400,11 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 
 vim.keymap.set('t', 'jk', [[<C-\><C-n>]]) -- no need to escape the '\'
 
-
 -- set file type on buffer creation and reading
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = { "*.slim" },
-  command = "set ft=slim",
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = { '*.slim' },
+  command = 'set ft=slim',
 })
-
-
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -631,12 +643,12 @@ cmp.setup {
 -- vim: ts=2 sts=2 sw=2 et
 --
 -- Folding
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
-vim.opt.foldcolumn = "0"
+vim.opt.foldcolumn = '0'
 
-vim.opt.foldtext = ""
+vim.opt.foldtext = ''
 
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 3
