@@ -37,7 +37,7 @@ require('lazy').setup({
   'tpope/vim-sleuth',
 
   --GIT
-  'tpope/vim-fugitive',
+  -- 'tpope/vim-fugitive',
 
   {
     -- LSP Configuration & Plugins
@@ -397,6 +397,7 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>gb', ":G blame<cr>", { desc = '[G]it [B]lame' })
 
 vim.keymap.set('t', 'jk', [[<C-\><C-n>]]) -- no need to escape the '\'
 
