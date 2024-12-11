@@ -553,10 +553,9 @@ local servers = {
   gopls = {},
   pyright = {},
   rust_analyzer = {},
-  ts_ls = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
   emmet_language_server = {},
-  tailwindcss = {},
+
 
   lua_ls = {
     Lua = {
@@ -591,17 +590,6 @@ mason_lspconfig.setup_handlers {
       filetypes = (servers[server_name] or {}).filetypes,
     }
   end,
-}
-
-require('lspconfig').phpactor.setup {
-  on_attach = on_attach,
-  root_dir = function()
-    return vim.loop.cwd()
-  end,
-  init_options = {
-    ['language_server_phpstan.enabled'] = false,
-    ['language_server_psalm.enabled'] = false,
-  },
 }
 
 require('lspconfig').svelte.setup {}
